@@ -1,0 +1,23 @@
++-----------------------------------+
+|            HttpRequest            |  <-------------------------+
++-----------------------------------+                            |
+| + url: string                     |                            |
+| + method: string                  |                            |
+| + headers: map<string, string>    |                            |
+| + body: string                    |                            |
+| + timeoutMs: int                  |                            |
++-----------------------------------+                            |
+                                                                 | <<creates>>
+                                                                 |
++-----------------------------------------------------------+    |
+|                    HttpRequestBuilder                     |    |
++-----------------------------------------------------------+    |
+| - request: HttpRequest                                    |    |
++-----------------------------------------------------------+    |
+| + HttpRequestBuilder(url: string)                         |    |
+| + method(method: string): HttpRequestBuilder&             |    |
+| + header(k: string, v: string): HttpRequestBuilder&       |----+
+| + body(body: string): HttpRequestBuilder&                 |
+| + timeoutMs(timeout: int): HttpRequestBuilder&            |
+| + build(): HttpRequest                                    |
++-----------------------------------------------------------+
